@@ -1,23 +1,12 @@
-
-
-# Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="geoffgarside"
-NODE_PATH="/usr/local/lib/node_modules"
 
-# Example aliases
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias doc="docblockgen"
 alias wp="wget http://wordpress.org/latest.tar.gz && tar xvzf latest.tar.gz && rm -rf latest.tar.gz && cd wordpress && mv * .. && cd .. && rm -rf wordpress"
 alias roots="git clone git://github.com/retlehs/roots.git"
-alias newest="sh ~/newest.sh"
-alias flush="sh ~/flush.sh"
+alias newest="svn up && sudo chown -R _www:staff . && sudo chmod -R g+rw ."
 alias reload="source ~/.zshrc"
 alias jslint="JSLintCli"
 alias minify="yuicompressor --verbose"
@@ -32,13 +21,13 @@ alias pub="more ~/.ssh/id_rsa.pub | pbcopy | echo 'public key copied to clipboar
 alias wiki="xargs -I % bash -c 'dig +short txt %.wp.dg.cx' <<<"
 alias ghost="nocorrect ghost"
 alias grunt="nocorrect grunt"
-alias apache="sudo /opt/local/etc/LaunchDaemons/org.macports.apache2/apache2.wrapper"
 alias work="ssh mhertzberg@mhertzberg.ny.emusic.com"
 alias bk="ssh mhertzberg@10.5.8.111"
 alias pos="ssh mhertzberg@abv-pos-01.ny.emusic.com"
+alias highline="ssh root@highlineballroom.com"
 alias flush="dscacheutil -flushcache"
-alias vhosts="mate /opt/local/apache2/conf/extra/httpd-vhosts.conf"
-alias update="echo Updating... && brew upgrade && sudo port selfupdate && sudo port upgrade outdated && brew update"
+alias vhosts="mate /private/etc/apache2/extra/httpd-vhosts.conf"
+alias update="echo Updating...; brew update; brew upgrade; sudo port selfupdate; sudo port upgrade outdated"
 
 alias jquery="wget http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"
 alias jqueryui="wget http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.8.19/jquery-ui.min.js"
@@ -60,32 +49,17 @@ alias historyjs="wget https://raw.github.com/balupton/history.js/master/scripts/
 alias transit="wget http://ricostacruz.com/jquery.transit/jquery.transit.min.js"
 alias pageturn="wget http://www.netmagazine.com/files/tutorials/demos/2012/06/create-a-page-turn-effect/demo/jquery.pageturn.js"
 alias lazyload="wget https://raw.github.com/tuupola/jquery_lazyload/master/jquery.lazyload.min.js"
-alias emberjs="git clone git://github.com/emberjs/ember.js.git"
+alias ember="git clone git://github.com/emberjs/ember.js.git"
 alias morris="wget https://raw.github.com/oesmith/morris.js/0.2.10/morris.min.js"
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
+#CASE_SENSITIVE="true"
+#DISABLE_AUTO_UPDATE="true"
 #DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
+#DISABLE_AUTO_TITLE="true"
 COMPLETION_WAITING_DOTS="true"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git brew macports osx textmate extract)
 
-source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
 export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:$(brew --prefix coreutils)/libexec/gnubin:/usr/local/Cellar/ruby/1.9.3-p194/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/mshertzberg/node_modules/.bin"
 export NODE_PATH="$NODE_PATH:/usr/local/lib/node_modules"
 
@@ -108,12 +82,17 @@ echo " pub\t\tSSH Public Key"
 echo " wiki\t\tWikipedia search"
 echo " ghost\t\tEasy hosts Add/Remove/Edit"
 echo " grunt\t\tJavaScript build tool"
+echo " bbb\t\tBackbone build tool"
 echo " vhosts\t\tEdit Apache virtual hosts"
-echo " ------------->\tjquery jqueryui spine backbone underscore yui3 caman easing waypoints simplecart getjs spinjs storejs twitterlib isotope fixie historyjs transit pageturn lazyload emberjs morris"
+echo " couchapp\tCouchApp"
+echo " casperjs\tCasperJS"
+echo " phantomjs\tPhantomJS"
+echo " ------------->\tjquery jqueryui spine backbone underscore yui3 caman easing waypoints simplecart getjs spinjs storejs twitterlib isotope fixie historyjs transit pageturn lazyload ember morris"
 echo " thor\t\tConnect to 'thor'"
 echo " work\t\tConnect to 'eMusic'"
 echo " bk\t\tConnect to 'bk'"
 echo " pos\t\tConnect to 'pos-1'"
+echo " highline\tConnect to 'Highline Ballroom'"
 
 echo ''
 echo " Ctrl + A\tGo to the beginning of the line you are currently typing on "
@@ -129,3 +108,5 @@ echo " Esc  + T\tSwap the last two words before the cursor "
 echo " Alt  + F\tMove cursor forward one word on the current line "
 echo " Alt  + B\tMove cursor backward one word on the current line "
 echo ''
+
+source $ZSH/oh-my-zsh.sh
