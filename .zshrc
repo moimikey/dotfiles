@@ -91,7 +91,6 @@ echo " thor\t\tConnect to 'thor'"
 echo " work\t\tConnect to 'eMusic'"
 echo " bk\t\tConnect to 'bk'"
 echo " pos\t\tConnect to 'pos-1'"
-echo " highline\tConnect to 'Highline Ballroom'"
 
 echo ''
 echo " Ctrl + A\tGo to the beginning of the line you are currently typing on "
