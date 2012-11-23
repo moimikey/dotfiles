@@ -8,7 +8,7 @@ COMPLETION_WAITING_DOTS="true"
 
 plugins=(git brew macports osx textmate extract)
 
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:$(brew --prefix coreutils)/libexec/gnubin:/usr/local/Cellar/ruby/1.9.3-p194/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/mshertzberg/node_modules/.bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/libexec/gnubin"
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:$(brew --prefix coreutils)/libexec/gnubin:/usr/local/Cellar/ruby/1.9.3-p327/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/mshertzberg/node_modules/.bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/libexec/gnubin"
 export NODE_PATH="$NODE_PATH:/usr/local/lib/node_modules"
 
 # Empty the Trash on all mounted volumes and the main HDD
@@ -117,54 +117,15 @@ alias safari="open -a safari"
 alias firefox="open -a firefox"
 alias opera="open -a opera"
 alias chrome="open -a google\ chrome"
+alias chrome-nosec="open google\ chrome --args --disable-web-security"
 alias canary="open -a google\ chrome\ canary"
+alias canary-nosec="open google\ chrome\ canary --args --disable-web-security"
 
 # Currently Uncategorized
 alias django="/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/django-admin.py"
 alias gitcoms="_gitcoms"
 alias git="hub"
 
-function iloveyou() {
-echo ""
-echo "       ..8888888..     ..8888888.."
-echo "     .8:::::::::::8. .8:::::::::::8."
-echo "   .8:::::::::::::::8:::::::::::::::8."
-echo "  .8:::::::::::::::::::::::::::::::::8."
-echo "  8:::::::::::::::::::::::::::::::::::8"
-echo "  8:::::::::::::::::::::::::::::::::::8"
-echo "  8:::::::::::::::::::::::::::::::::::8"
-echo "  '8:::::::::::::::::::::::::::::::::8'"
-echo "   '8:::::::::::::::::::::::::::::::8'"
-echo "    '8:::::::::::::::::::::::::::::8'"
-echo "      '8:::::::::::::::::::::::::8'"
-echo "        '8:::::::::::::::::::::8'"
-echo "          '8:::::::::::::::::8'  i love you"
-echo "             '8:::::::::::8'"
-echo "                '8:::::8'"
-echo "                   '8'"
-echo ""
-}
-
-function youreamazing() {
-echo ""
-echo "       ..8888888..     ..8888888.."
-echo "     .8:::::::::::8. .8:::::::::::8."
-echo "   .8:::::::::::::::8:::::::::::::::8."
-echo "  .8:::::::::::::::::::::::::::::::::8."
-echo "  8:::::::::::::::::::::::::::::::::::8"
-echo "  8:::::::::::::::::::::::::::::::::::8"
-echo "  8:::::::::::::::::::::::::::::::::::8"
-echo "  '8:::::::::::::::::::::::::::::::::8'"
-echo "   '8:::::::::::::::::::::::::::::::8'"
-echo "    '8:::::::::::::::::::::::::::::8'"
-echo "      '8:::::::::::::::::::::::::8'"
-echo "        '8:::::::::::::::::::::8'"
-echo "          '8:::::::::::::::::8'  you're amazing"
-echo "             '8:::::::::::8'"
-echo "                '8:::::8'"
-echo "                   '8'"
-echo ""
-}
 
 function submodule() {
 	if [[ -z "$1" ]]; then
