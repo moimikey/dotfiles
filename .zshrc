@@ -27,7 +27,7 @@ alias hide="defaults write com.apple.Finder AppleShowAllFiles -bool false && kil
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 alias root="sudo -i"
-alias flush_all="nc -vxi1 localhost 11211 <<< flush_all <<< quit &>/dev/null | grep -E '(OK|ERROR)'"
+alias flush_all="echo 'flush_all' | nc localhost 11211 -i1 <<< 'quit'"
 
 # Fixes
 alias fixcamera="sudo killall VDCAssistant"
