@@ -18,6 +18,7 @@ done
 
 # Override
 alias git="hub"
+alias wget="wget -c"
 
 # Util
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
@@ -26,6 +27,7 @@ alias hide="defaults write com.apple.Finder AppleShowAllFiles -bool false && kil
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 alias root="sudo -i"
+alias flush_all="nc -vxi1 localhost 11211 <<< flush_all <<< quit &>/dev/null | grep -E '(OK|ERROR)'"
 
 # Fixes
 alias fixcamera="sudo killall VDCAssistant"
