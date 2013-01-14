@@ -8,7 +8,7 @@ alias ohmyzsh="mate ~/.oh-my-zsh"
 alias reload="source ~/.zshrc"
 
 # Paths
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:$(brew --prefix coreutils)/libexec/gnubin:/usr/local/Cellar/ruby/1.9.3-p327/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/mshertzberg/node_modules/.bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/libexec/gnubin"
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:$(brew --prefix coreutils)/libexec/gnubin:/usr/local/Cellar/ruby/1.9.3-p362/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/mshertzberg/node_modules/.bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/libexec/gnubin"
 export NODE_PATH="$NODE_PATH:/usr/local/lib/node_modules"
 
 # Verbs
@@ -28,10 +28,13 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 alias root="sudo -i"
 alias flush_all="echo 'flush_all' | nc localhost 11211 -i1 <<< 'quit'"
+#alias convertvid="echo ffmpeg -i $ARG1 -b 1024k -i $ARG2.mpg $ARG2.webm $ARG2.ogv"
+#alias convertvid="xargs -I % bash -c 'ffmpeg -i % -b:v 1024k %.mpg %.webm %.ogv' <<<"
 
 # Fixes
 alias fixcamera="sudo killall VDCAssistant"
 alias fixaudio="sudo killall coreaudiod"
+alias fixnpm="sudo npm -g cache clean"
 
 # Libs
 alias wp="wget http://wordpress.org/latest.tar.gz && tar xvzf latest.tar.gz && rm -rf latest.tar.gz && cd wordpress && mv * .. && cd .. && rm -rf wordpress"
@@ -86,14 +89,18 @@ alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
 alias pub="more ~/.ssh/id_rsa.pub | pbcopy | echo 'public key copied to clipboard'"
 alias flush="dscacheutil -flushcache"
 alias vhosts="mate /private/etc/apache2/extra/httpd-vhosts.conf"
+alias hosts="mate /etc/hosts"
 
 # Remote
 alias thor="ssh root@69.55.55.139"
+alias thorip="echo 69.55.55.139 | pbcopy | echo copied to clipboard"
 alias xthor="xargs -I % bash -c 'scp % root@69.55.55.139:%' <<<"
 alias forks="ssh root@69.55.54.222"
 alias xforks="xargs -I % bash -c 'scp % root@69.55.54.222:%' <<<"
+alias forksip="echo 69.55.54.222 | pbcopy | echo copied to clipboard"
 alias snickers="ssh root@192.34.57.136"
 alias xsnickers="xargs -I % bash -c 'scp % root@192.34.57.136:%' <<<"
+alias snickersip="echo 192.34.57.136 | pbcopy | echo copied to clipboard"
 alias highline="ssh root@highlineballroom.com"
 alias hertzberg="ssh root@hertzberg.co"
 
@@ -110,16 +117,6 @@ alias chrome-nosec="open google\ chrome --args --disable-web-security"
 alias canary="open -a google\ chrome\ canary"
 alias canary-nosec="open google\ chrome\ canary --args --disable-web-security"
 
-# Func
-function grab() {
-	if [[ -z "$1" ]]; then
-		echo "opts: <library>"
-		return 0
-	fi;	
-	DATA=$(curl -s http://cdnjs.com/index.html | grep '<td>//cdnjs.cloudflare.com/ajax/libs/' | sed 's/<td>//' | sed 's/<\/td>//' | sed 's/\/\///')
-	echo $DATA | grep $1
-}
-
 function gz() {
 	echo "orig size    (bytes): "
 	cat "$1" | wc -c
@@ -135,17 +132,23 @@ function webserver() {
 
 function escape() {
 	printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
-	echo # newline
+	echo
 }
 
 function update() {
-	echo Updating...
+	echo — Updating Homebrew...
 	brew update
+	echo — Upgrading Homebrew packages...
 	brew upgrade
+	echo — Cleaning up...
+	brew cleanup
+	echo — Updating MacPorts...
 	sudo port selfupdate
+	echo — Upgrading ports...
 	sudo port upgrade outdated
+	echo — Updating NPM packages...
 	sudo npm -g update
-	echo Done!
+	echo — Done!
 }
 
 echo
@@ -161,7 +164,7 @@ echo " browsers –––>\tchrome | chrome-nosec | canary | canary-nosec | safa
 echo " =–––––––––––>\tGET HEAD POST PUT DELETE TRACE OPTIONS"
 echo " =–––––––––––>\tBOWER:"
 for i in `alias | grep bower | awk '{print $1}' | rev | cut -c8- | rev`; do
-	echo "\t\t$i"
+	echo "\t\t— $i"
 done
 echo ''
 
