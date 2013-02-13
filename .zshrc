@@ -2,14 +2,15 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="geoffgarside"
 COMPLETION_WAITING_DOTS="true"
-plugins=(encode64 macports npm urltools)
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias reload="source ~/.zshrc"
 
 # Paths
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:$(brew --prefix coreutils)/libexec/gnubin:/usr/local/Cellar/ruby/1.9.3-p362/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/mshertzberg/node_modules/.bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/libexec/gnubin"
-export NODE_PATH="$NODE_PATH:/usr/local/lib/node_modules"
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:$(brew --prefix coreutils)/libexec/gnubin:/usr/local/Cellar/ruby/1.9.3-p385/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/libexec/gnubin"
+
+# NVM
+[[ -s /Users/mshertzberg/.nvm/nvm.sh ]] && . /Users/mshertzberg/.nvm/nvm.sh
 
 # Verbs
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
@@ -49,7 +50,6 @@ alias raphael="bower install raphael"
 alias yepnope="bower install yepnope"
 alias jquery="bower install jquery"
 alias jqueryui="bower install jquery-ui"
-alias spine="bower install spine"
 alias backbone="bower install backbone"
 alias underscore="bower install underscore"
 alias waypoints="bower install jquery-waypoints"
@@ -57,13 +57,10 @@ alias spinjs="bower install spin.js"
 alias storejs="bower install store.js"
 alias isotope="bower install isotope"
 alias jquery.lazyload="bower install jquery.lazyload"
-alias ember="bower install ember"
 alias requirejs="bower install requirejs"
 alias normalize.css="bower install normalize-css"
 alias moment="bower install moment"
 alias accountingjs="bower install accounting"
-alias urljs="bower install URL.js"
-alias morris="bower install morris.js"
 alias jquery.easing="bower install jquery-easing"
 alias animate.css="bower install animate.css"
 alias twitterlib="bower install twitterlib"
@@ -73,6 +70,12 @@ alias webshim="bower install webshim"
 alias resumable="bower install resumablejs"
 alias systemjs="bower install systemjs"
 alias ccv="bower install ccv"
+alias sugar="bower install sugar"
+alias listjs="bower install listjs"
+alias fuelux="bower install fuelux"
+alias rickshaw="bower install rickshaw"
+alias q="bower install q"
+alias wysi="bower install bootstrap-wysihtml5"
 
 # Dev
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
@@ -80,8 +83,8 @@ alias ios="open -a /Applications/Xcode.app/Contents/Applications/iPhone\ Simulat
 alias perms="sudo chown -R _www:staff . && sudo chmod -R g+rw ."
 alias minify="yuicompressor --verbose"
 alias closure="closure-compiler"
-alias grunt="nocorrect grunt"
 alias django="/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/django-admin.py"
+alias cafe="coffee -wc src -o js"
 
 # Sys
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -103,6 +106,13 @@ alias xsnickers="xargs -I % bash -c 'scp % root@192.34.57.136:%' <<<"
 alias snickersip="echo 192.34.57.136 | pbcopy | echo copied to clipboard"
 alias highline="ssh root@highlineballroom.com"
 alias hertzberg="ssh root@hertzberg.co"
+alias puff="ssh root@192.81.208.29"
+alias xpuff="xargs -I % bash -c 'scp % root@192.81.208.29:%' <<<"
+alias puffip="echo 192.81.208.29 | pbcopy | echo copied to clipboard"
+alias mmportal="ssh mshertzberg@portal.ci.mimedia.com"
+alias xmmportal="xargs -I % bash -c 'scp % mshertzberg@portal.ci.mimedia.com:%' <<<"
+alias slu="ssh elisa@stylelikeu.com"
+alias xslu="xargs -I % bash -c 'scp % elisa@stylelikeu.com:%' <<<"
 
 # Fun
 alias wiki="xargs -I % bash -c 'dig +short txt %.wp.dg.cx' <<<"
@@ -112,10 +122,10 @@ alias up="/Users/mshertzberg/.scripts/Dropbox-Uploader/dropbox_uploader.sh"
 alias safari="open -a safari"
 alias firefox="open -a firefox"
 alias opera="open -a opera"
-alias chrome="open -a google\ chrome"
-alias chrome-nosec="open google\ chrome --args --disable-web-security"
-alias canary="open -a google\ chrome\ canary"
-alias canary-nosec="open google\ chrome\ canary --args --disable-web-security"
+alias chrome="open -a /Applications/Google\ Chrome.app"
+alias chrome-nosec="open /Applications/Google\ Chrome.app --args --disable-web-security"
+alias canary="open -a /Applications/Google\ Chrome\ Canary.app"
+alias canary-nosec="open /Applications/Google\ Chrome\ Canary.app --args --disable-web-security"
 
 function gz() {
 	echo "orig size    (bytes): "
@@ -145,21 +155,21 @@ function update() {
 	echo — Updating MacPorts...
 	sudo port selfupdate
 	echo — Upgrading ports...
-	sudo port upgrade outdated
+	sudo port -p upgrade outdated not curl
 	echo — Updating NPM packages...
-	sudo npm -g update
+	npm -g update
 	echo — Done!
 }
 
 echo
 echo ' OPTIONS'
 perl -e 'print " =", "—" x 85, "=\n"'
-echo " =———————————>\tthor | forks | snickers | hertzberg | highline"
+echo " =———————————>\tthor | forks | snickers | puff | hertzberg | highline | mmportal | slu"
 echo " jqboiler\tFetch jQuery plugin boilerplate"
-echo " jslint\t\tJS Lint"
-echo " jshint\t\tJS Hint"
+echo " jslint\t\tJSLint"
+echo " jshint\t\tJSHint"
+echo " coffeelint\tCoffeeLint"
 echo " coffee\t\tCoffeeScript Compiler"
-echo " pub\t\tSSH Pub Key"
 echo " browsers –––>\tchrome | chrome-nosec | canary | canary-nosec | safari | opera | firefox"
 echo " =–––––––––––>\tGET HEAD POST PUT DELETE TRACE OPTIONS"
 echo " =–––––––––––>\tBOWER:"
@@ -168,4 +178,5 @@ for i in `alias | grep bower | awk '{print $1}' | rev | cut -c8- | rev`; do
 done
 echo ''
 
+plugins=(npm urltools)
 source $ZSH/oh-my-zsh.sh
