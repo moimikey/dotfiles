@@ -1,51 +1,101 @@
 # ZSH
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="gentoo"
-COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS=true
+DISABLE_UPDATE_PROMPT=true
 
-alias zshconfig="mate ~/.zshrc"
+alias zshconfig="vi ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias reload="source ~/.zshrc"
 
 # Paths
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:$(brew --prefix coreutils)/libexec/gnubin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/libexec/gnubin:/Users/mshertzberg/depot_tools:$HOME/.rvm/bin:$PATH"
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:$(brew --prefix coreutils)/libexec/gnubin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/libexec/gnubin:/Users/mshertzberg/depot_tools"
 
 # NVM
-[[ -s /Users/mshertzberg/.nvm/nvm.sh ]] && . /Users/mshertzberg/.nvm/nvm.sh
+[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
+[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
-# RVM
-[[ -s /Users/mshertzberg/.rvm/scripts/rvm ]] && . /Users/mshertzberg/.rvm/scripts/rvm
-
-# OTF HTTP Methods
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
-done
+# Settings
+defaults write com.apple.screencapture disable-shadow -bool true
 
 # Override
-alias git="hub"
 alias wget="wget -c"
-alias grunt="nocorrect grunt"
+alias grunt="noglob grunt"
 alias port="port -d"
 alias vi="vim"
 alias bower='noglob bower'
+alias php='/usr/bin/php'
+alias ack='ag -u --stats'
+
+# Composer
+alias getcomposer="curl -s https://getcomposer.org/installer | php"
+alias composer="php composer.phar"
 
 # Git
-alias gr="git rebase -i master && git commit --amend"
+alias gr="git rebase -i master"
+alias amend="git commit --amend"
+
+# -v, -vv, --verbose
+#     When in list mode, show sha1 and commit subject line for each head, along with relationship to upstream branch (if
+#     any). If given twice, print the name of the upstream branch, as well (see also git remote show <remote>).
 alias gb="git branch -v"
-alias gbr="git branch -r -v"
-alias gba="git branch -a -v"
+
+# -r, --remotes
+#     List or delete (if used with -d) the remote-tracking branches.
+alias gbr="git branch -rv"
+
+#   mh/konami                fa82bb2 Fix dev server to not intercept XHR asset requests
+#   mh/mediaitem-context     ccd3e26 add context menu + initial ability to add selected model to EXISTING family drive
+# * mh/mediaview-fullscreen  cfd83b1 Merge pull request #197 from mimedia/mh/collections-hover-fix
+#   mh/transition            a21c00b Merge pull request #198 from mojotech/ar/fd_comments
+alias gba="git branch -av"
+
+# mshertzberg@forge ~/MiMedia/WebClient (mh/mediaview-fullscreen*) $ gs
+# ## mh/mediaview-fullscreen
+#  M app/index.html
+#  M app/scripts/apps/media-view/media-view-app.coffee
+#  M app/scripts/apps/media-view/show/show-controller.coffee
+# A  app/scripts/apps/media-view/show/templates/fullscreen.html
+#  M app/scripts/apps/media-view/show/templates/media-view-layout.html
 alias gs="git status -sb"
+
 alias gd="git diff"
 alias gdc="git diff --cached"
+
+# cfd83b1b62c418fe986f8519bd2be2f4dd8e7961 Merge pull request #197 from mimedia/mh/collections-hover-fix
+# 55d499ff2f2dc85111debe8ed3f8a416992759ae smoothen out performance of collections hover
 alias gl="git log --pretty=oneline"
+
+# commit 55d499ff2f2dc85111debe8ed3f8a416992759ae
+# Author: Michael Scott Hertzberg <mshertzberg@gmail.com>
+# Date:   Sat Dec 14 22:46:36 2013 -0500
+#
+#     smoothen out performance of collections hover
+#
+#  app/scripts/apps/effects/show/views/grid.coffee | 49 ++++++++++++++++++++++++++++++++-----------------
+#  app/styles/_base.scss                           |  9 +++++++++
+#  app/styles/_effects.scss                        |  7 ++++++-
+#  3 files changed, 47 insertions(+), 18 deletions(-)
 alias gls="git log --stat"
+
+# * 7be39f2 (origin/pr/202) Infinite scroll media items on family drive
+# * 4626921 Change default infinite pagination size
+# | * 477ecb7 (origin/pr/201) Dont paginate across *real* collections
+# | * 3a95b98 Update URL when paginating across collections
 alias glh="git log --color --oneline --all --decorate --graph"
+
 alias gitk="gitk --all &"
 alias gg="git grep -n"
-alias gp="git pull --rebase"
-alias gu="git pull upstream master && git add . && git commit -am \"resync upstream on `date`\" && git push"
-alias gf="git fetch origin && git rebase"
+alias gp="git pull --rebase" # pull with rebase
+alias gf="git fetch -p origin && git rebase" fetch HEAD of origin and rebase
+alias grm="git rebase master" # rebase current branch with master
+alias gbm="git branch --merged" # show branches that were merged
+alias gbnm="git branch --no-merged" # show branches that were not merged
+alias gbc="git branch --merged | xargs git branch -d" # remove local branches that have been merged
+
+alias rb="git rebase master"
 alias pull="gf && xargs -I % bash -c 'git checkout pr/%' <<<"
+alias p="pivotal_tools --project-index=1"
 
 # Util
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
@@ -56,8 +106,9 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 alias root="_ -i"
 alias flush_all="echo 'flush_all' | nc localhost 11211 -i1 <<< 'quit'"
 alias poser="curl -s https://getcomposer.org/installer | php"
-alias klear="find . -delete"
+alias klear="find . -maxdepth 1 ! -name ".git\*" -delete"
 alias json="python -mjson.tool"
+alias hashcat="/Users/mshertzberg/git/hashcat-0.47/hashcat-0.47/hashcat-cli64.app"
 
 # Fixes
 alias fixcamera="sudo killall VDCAssistant"
@@ -83,8 +134,8 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
 alias pub="more ~/.ssh/id_rsa.pub | pbcopy | echo 'public key copied to clipboard'"
 alias flush="sudo dscacheutil -flushcache; echo `ps aux | grep mDNSResponder | grep -v grep | awk '{print $2}'` | xargs sudo kill -HUP"
-alias vhosts="mate /private/etc/apache2/extra/httpd-vhosts.conf"
-alias hosts="mate /etc/hosts"
+alias vhosts="vi /private/etc/apache2/extra/httpd-vhosts.conf"
+alias hosts="_ vi /etc/hosts"
 
 # Fun
 alias wiki="xargs -I % bash -c 'dig +short txt %.wp.dg.cx' <<<"
@@ -96,52 +147,71 @@ alias safari="open -a safari"
 alias firefox="open -a firefox"
 alias opera="open -a opera"
 alias chrome="open -a /Applications/Google\ Chrome.app"
-alias chrome-nosec="open /Applications/Google\ Chrome.app --args --disable-web-security"
+alias chrome-nosec="open /Applications/Google\ Chrome.app --args --disable-web-security --disable-prompt-on-repost --allow-running-insecure-content --ignore-certificate-errors"
 alias canary="open -a /Applications/Google\ Chrome\ Canary.app"
-alias canary-nosec="open /Applications/Google\ Chrome\ Canary.app --args --disable-web-security"
+alias canary-nosec="open /Applications/Google\ Chrome\ Canary.app --args --disable-web-security --disable-prompt-on-repost"
+
+# Backbone + Marionette
+function subapp() {
+  if [[ $# == 0 ]]; then
+    echo 'subapp <sub-app-name>'
+  else
+    echo creating subapp $1...
+    mkdir $1
+    touch $1/$1-app.coffee
+    echo "@MM.module '${(C)1}App', (${(C)1}App, App, Backbone, Marionette, $, _) ->" > $1/$1-app.coffee
+    mkdir $1/show
+    touch $1/show/show-controller.coffee
+    echo "@MM.module '${(C)1}App.Show', (Show, App, Backbone, Marionette, $, _) ->\n\n  Show.Controller =\n\n    " > $1/show/show-controller.coffee
+    mkdir $1/show/templates
+    mkdir $1/show/views
+  fi
+}
 
 function gz() {
-	echo "orig size    (bytes): "
-	cat "$1" | wc -c
-	echo "gzipped size (bytes): "
-	gzip -c "$1" | wc -c
+  echo "orig size    (bytes): "
+  cat "$1" | wc -c
+  echo "gzipped size (bytes): "
+  gzip -c "$1" | wc -c
 }
 
 function webserver() {
-	local port="${1:-8000}"
-	open "http://localhost:${port}/"
-	python -c $'import SimpleHTTPServer;\nstream = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nstream[""] = "text/plain";\nfor key, value in stream.items():\n\tstream[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
+  local port="${1:-8000}"
+  open "http://localhost:${port}/"
+  python -c $'import SimpleHTTPServer;\nstream = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nstream[""] = "text/plain";\nfor key, value in stream.items():\n\tstream[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }
 
 function escape() {
-	printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
-	echo
+  printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
+  echo
 }
 
 function update() {
-	echo — Updating Homebrew...
-	brew update
-	echo — Upgrading Homebrew packages...
-	brew upgrade
-	echo — Cleaning up...
-	brew cleanup
-  echo - Pruning...
-  brew prune
-	echo — Updating MacPorts...
-	sudo port selfupdate
-	echo — Upgrading ports...
-	sudo port -p upgrade outdated
-  echo - Cleaning up ports...
-  sudo port clean --all installed
-  echo - Removing inactive ports...
-  sudo port -f uninstall inactive
-	echo — Updating NPM packages...
-	npm -g up
-  echo - Updating RVM...
-  rvm get stable
-  echo - Updating Ruby Gems...
-  rvm rubygems latest
-	echo — Done
+    echo — Updating Homebrew...
+    brew update
+    echo — Upgrading Homebrew packages...
+    brew upgrade
+    echo — Cleaning up...
+    brew cleanup
+    echo - Pruning...
+    brew prune
+    #echo — Updating MacPorts...
+    #sudo port selfupdate
+    #echo — Upgrading ports...
+    #sudo port -p upgrade outdated
+    #echo - Cleaning up ports...
+    #sudo port clean --all installed
+    #echo - Removing inactive ports...
+    #sudo port -f uninstall inactive
+    echo — Updating NPM packages...
+    npm -g up
+    echo - Updating RVM...
+    rvm get stable
+    echo - Cleanup up RVM...
+    rvm cleanup all
+    echo - Updating Ruby Gems...
+    rvm rubygems latest
+    echo — Done
 }
 
 RED="\x1b[31m"
@@ -153,7 +223,6 @@ BLU="\x1b[36m"
 RST="\x1b[0m"
 
 echo
-echo " \t\t${BLU}thor${RST} | ${BLU}forks${RST} | ${BLU}snickers${RST} | ${BLU}puff${RST} | ${BLU}hertzberg${RST} | ${BLU}highline${RST} | ${BLU}mmportal${RST} | ${BLU}slu${RST}"
 echo " ${GRN}jqboiler${RST}\tFetch jQuery plugin boilerplate"
 echo " ${GRN}coffeelint${RST}\tCoffeeLint"
 echo " git-extras\t${GRN}git-commits-since [yesterday|last week|etc]${RST}"
@@ -168,5 +237,8 @@ echo " git-ftp\t${GRN}git ftp <init|push> <-u user> <-p -> <ftp://host.example.c
 #done
 echo ''
 
-plugins=(git npm urltools bower coffee rsync)
-source $ZSH/oh-my-zsh.sh
+plugins=(git-extras grunt urltools npm bower sync)
+. $ZSH/oh-my-zsh.sh
+#source ~/git/k/k.sh
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
