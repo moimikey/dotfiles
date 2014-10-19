@@ -1,0 +1,7 @@
+RED="\x1b[31m"
+GRN="\x1b[32m"
+YEL="\x1b[33m"
+CYA="\x1b[34m"
+PUR="\x1b[35m"
+BLU="\x1b[36m"
+RST="\x1b[0m"
