@@ -1,3 +1,11 @@
+RED="\x1b[31m"
+GRN="\x1b[32m"
+YEL="\x1b[33m"
+CYA="\x1b[34m"
+PUR="\x1b[35m"
+BLU="\x1b[36m"
+RST="\x1b[0m"
+
 # ZSH
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="gentoo"
@@ -27,6 +35,14 @@ alias bower='noglob bower'
 alias php='/usr/bin/php'
 alias ack='ag -u --stats'
 
+# ImageMagick
+alias transparentize='mogrify -transparent white'
+alias whatarethese='for file in *.(JPG|jpg|gif|GIF|jpeg|JPEG); do identify -format "filename: %f | filesize: %[size] | orien: %[orientation] \n" $file; done'
+alias blackandwhite='mogrify -colorspace gray'
+
+# Image related...
+alias b64="xargs -I % bash -c 'openssl base64 < %' <<<"
+
 # Composer
 alias getcomposer="curl -s https://getcomposer.org/installer | php"
 alias composer="php composer.phar"
@@ -34,6 +50,7 @@ alias composer="php composer.phar"
 # Git
 alias gr="git rebase -i master"
 alias amend="git commit --amend"
+alias howbigismycodebase="git ls-files | grep coffee | xargs wc -l"
 
 # -v, -vv, --verbose
 #     When in list mode, show sha1 and commit subject line for each head, along with relationship to upstream branch (if
@@ -109,6 +126,7 @@ alias poser="curl -s https://getcomposer.org/installer | php"
 alias klear="find . -maxdepth 1 ! -name ".git\*" -delete"
 alias json="python -mjson.tool"
 alias hashcat="/Users/mshertzberg/git/hashcat-0.47/hashcat-0.47/hashcat-cli64.app"
+alias libs="libz"
 
 # Fixes
 alias fixcamera="sudo killall VDCAssistant"
@@ -137,6 +155,8 @@ alias flush="sudo dscacheutil -flushcache; echo `ps aux | grep mDNSResponder | g
 alias vhosts="vi /private/etc/apache2/extra/httpd-vhosts.conf"
 alias hosts="_ vi /etc/hosts"
 
+
+
 # Fun
 alias wiki="xargs -I % bash -c 'dig +short txt %.wp.dg.cx' <<<"
 alias up="/Users/mshertzberg/.scripts/Dropbox-Uploader/dropbox_uploader.sh"
@@ -150,30 +170,6 @@ alias chrome="open -a /Applications/Google\ Chrome.app"
 alias chrome-nosec="open /Applications/Google\ Chrome.app --args --disable-web-security --disable-prompt-on-repost --allow-running-insecure-content --ignore-certificate-errors"
 alias canary="open -a /Applications/Google\ Chrome\ Canary.app"
 alias canary-nosec="open /Applications/Google\ Chrome\ Canary.app --args --disable-web-security --disable-prompt-on-repost"
-
-# Backbone + Marionette
-function subapp() {
-  if [[ $# == 0 ]]; then
-    echo 'subapp <sub-app-name>'
-  else
-    echo creating subapp $1...
-    mkdir $1
-    touch $1/$1-app.coffee
-    echo "@MM.module '${(C)1}App', (${(C)1}App, App, Backbone, Marionette, $, _) ->" > $1/$1-app.coffee
-    mkdir $1/show
-    touch $1/show/show-controller.coffee
-    echo "@MM.module '${(C)1}App.Show', (Show, App, Backbone, Marionette, $, _) ->\n\n  Show.Controller =\n\n    " > $1/show/show-controller.coffee
-    mkdir $1/show/templates
-    mkdir $1/show/views
-  fi
-}
-
-function gz() {
-  echo "orig size    (bytes): "
-  cat "$1" | wc -c
-  echo "gzipped size (bytes): "
-  gzip -c "$1" | wc -c
-}
 
 function webserver() {
   local port="${1:-8000}"
@@ -213,29 +209,6 @@ function update() {
     rvm rubygems latest
     echo — Done
 }
-
-RED="\x1b[31m"
-GRN="\x1b[32m"
-YEL="\x1b[33m"
-CYA="\x1b[34m"
-PUR="\x1b[35m"
-BLU="\x1b[36m"
-RST="\x1b[0m"
-
-echo
-echo " ${GRN}jqboiler${RST}\tFetch jQuery plugin boilerplate"
-echo " ${GRN}coffeelint${RST}\tCoffeeLint"
-echo " git-extras\t${GRN}git-commits-since [yesterday|last week|etc]${RST}"
-echo " git-extras\t${GRN}git release [semver]${RST}"
-echo " git-extras\t${GRN}git ignore [...item]${RST}"
-echo " git-extras\t${GRN}git-graft <src-branch> [dest-branch]${RST} (merge all)"
-echo " git-extras\t${GRN}git-archive-file${RST} (zip up the current repo)"
-echo " git-ftp\t${GRN}git ftp <init|push> <-u user> <-p -> <ftp://host.example.com/public_html>"
-#echo " =–––––––––––>\tBOWER:"
-#for i in `alias | grep bower | awk '{print $1}' | rev | cut -c8- | rev`; do
-#	echo "\t\t— $i"
-#done
-echo ''
 
 plugins=(git-extras grunt urltools npm bower sync)
 . $ZSH/oh-my-zsh.sh
