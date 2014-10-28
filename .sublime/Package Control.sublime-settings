@@ -1,0 +1,26 @@
+{
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"Alignment",
+		"Bower",
+		"CoffeeComplete Plus (Autocompletion)",
+		"Color Highlighter",
+		"DocBlockr",
+		"Fix Mac Path",
+		"Git",
+		"Git Config",
+		"GitGutter",
+		"Grunt",
+		"HTML5",
+		"nginx",
+		"Package Control",
+		"Require Node.js Modules Helper",
+		"SCSS",
+		"Shell Turtlestein",
+		"SublimeLinter",
+		"SublimeREPL",
+		"Theme - Spacegray",
+		"Tomorrow Color Schemes"
+	]
+}
