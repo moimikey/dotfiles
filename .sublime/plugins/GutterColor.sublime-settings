@@ -1,0 +1,6 @@
+{
+  "convert_path": "/opt/local/bin/convert",
+  "supported_syntax": ["css", "scss", "sass", "less", "stylus", "xml"],
+  "use_transparency": true,
+  "fix_color_schemes": true
+}
