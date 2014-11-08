@@ -2,17 +2,20 @@
 	"installed_packages":
 	[
 		"Alignment",
+		"ApplySyntax",
 		"Bower",
 		"CoffeeComplete Plus (Autocompletion)",
-		"Color Highlighter",
 		"DocBlockr",
 		"Fix Mac Path",
 		"Git",
 		"Git Config",
 		"GitGutter",
+		"Glue",
 		"Grunt",
+		"Gutter Color",
 		"HTML5",
 		"nginx",
+		"Origami",
 		"Package Control",
 		"Require Node.js Modules Helper",
 		"SCSS",
@@ -21,8 +24,8 @@
 		"SideBarGit",
 		"SublimeCodeIntel",
 		"SublimeLinter",
-		"SublimeREPL",
 		"Theme - Spacegray",
-		"Tomorrow Color Schemes"
+		"Tomorrow Color Schemes",
+		"WordPress"
 	]
 }
