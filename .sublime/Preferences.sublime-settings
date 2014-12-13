@@ -21,30 +21,28 @@
 		"/Users/mshertzberg/depot_tools",
 		"/Users/mshertzberg/.rvm/bin"
 	],
+	"auto_find_in_selection": true,
 	"bold_folder_labels": true,
 	"caret_style": "phase",
 	"color_scheme": "Packages/User/base16-ocean.light (SL).tmTheme",
 	"draw_white_space": "all",
+	"ensure_newline_at_eof_on_save": true,
 	"fallback_encoding": "UTF-8",
 	"font_face": "menlo",
 	"font_size": 11.5,
+	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
+	"indent_to_bracket": true,
 	"margin": 0,
+	"match_brackets_angle": true,
 	"scroll_past_end": false,
 	"shift_tab_unindent": true,
 	"tab_size": 2,
 	"theme": "Spacegray Light.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"word_wrap": false,
-	"indent_to_bracket": true,
-	"highlight_line": true,
-	"match_brackets_angle": true,
-	"draw_white_space": "all",
-	"ensure_newline_at_eof_on_save": true,
-	"shift_tab_unindent": true,
-	"auto_find_in_selection": true
+	"word_wrap": false
 }
