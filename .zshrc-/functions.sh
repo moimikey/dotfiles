@@ -10,7 +10,6 @@ function escape() {
 }
 
 function update() {
-    echo HOMEBREW
     echo — Updating Homebrew...
     brew update
     echo - Updating Casks...
@@ -21,27 +20,19 @@ function update() {
     brew cleanup
     echo - Pruning...
     brew prune
-    echo
-    echo OH MY ZSH
-    echo
     echo - Updating Oh My ZSH...
     upgrade_oh_my_zsh
-    echo
-    echo NPM
-    echo
     echo — Updating NPM packages...
-    npm -g up
-    echo
-    echo RVM
-    echo
+    david update --global
     echo - Updating RVM...
     rvm get stable
+    echo - Updating Ruby Gems...
+    rvm rubygems latest
     echo - Cleanup up RVM...
     rvm cleanup all
-    echo - Updating Ruby Gems...
-    rvm rubygems current
-    echo - Updating Gems...
-
+    echo .
+    echo .
+    echo .
     echo — Done
 }
 

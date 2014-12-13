@@ -8,7 +8,6 @@ fi
 
 if [ ! -d $ZSH_CUSTOM/plugins/caniuse ]; then
   git clone https://github.com/walesmd/caniuse.plugin.zsh $ZSH_CUSTOM/plugins/caniuse
-
 fi
 
 if [ ! -d $ZSH_CUSTOM/plugins/grunt ]; then
