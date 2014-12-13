@@ -6,6 +6,7 @@ alias vi="vim"
 alias bower='noglob bower'
 alias php='/usr/bin/php'
 alias ack='ag -u --stats'
+alias node='node --harmony'
 
 # ImageMagick
 alias transparentize='mogrify -transparent white'
