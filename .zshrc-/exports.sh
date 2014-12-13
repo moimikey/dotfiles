@@ -5,10 +5,10 @@ ZSH_THEME='nicoulaj'
 COMPLETION_WAITING_DOTS=true
 DISABLE_UPDATE_PROMPT=true
 # plugins=(git-extras grunt urltools npm bower sync)
-plugins=(bower bundler gitfast git-extras npm )
+plugins=(bundler gitfast git-extras npm grunt caniuse)
 
-export EDITOR='subl -w'
-export ARCHFLAGS='-arch x86_64'
+EDITOR='subl -w'
+ARCHFLAGS='-arch x86_64'
 
 # git changelog [-l/--list] - populate changelog file with commits since the previous tag
 # git contrib - display author contributions
