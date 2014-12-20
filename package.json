@@ -1,0 +1,22 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "dotfiles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moimikey/dotfiles.git"
+  },
+  "author": "Michael Scott Hertzberg",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/moimikey/dotfiles/issues"
+  },
+  "homepage": "https://github.com/moimikey/dotfiles",
+  "dependencies": {
+    "shelljs": "^0.3.0"
+  }
+}

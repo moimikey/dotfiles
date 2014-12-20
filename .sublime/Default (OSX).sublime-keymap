@@ -3,5 +3,6 @@
   { "keys": ["super+shift+v"], "command": "paste" },
   { "keys": ["super+s"], "command": "save_all" },
   { "keys": ["super+shift+s"], "command": "prompt_save_as" },
-  { "keys": ["super+alt+s"], "command": "save" }
+  { "keys": ["super+alt+s"], "command": "save" },
+  { "keys": ["super+ctrl+`"], "command": "alignment" }
 ]
