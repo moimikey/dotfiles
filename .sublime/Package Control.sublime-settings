@@ -1,11 +1,21 @@
 {
+	"in_process_packages":
+	[
+	],
+	"installed_dependencies":
+	[
+		"0_package_control_loader",
+		"bz2"
+	],
 	"installed_packages":
 	[
 		"Alignment",
 		"ApplySyntax",
 		"Autoprefixer",
 		"Backbone.Marionette",
+		"Badges",
 		"Better CoffeeScript",
+		"Chai Completions",
 		"CSS3",
 		"Cucumber",
 		"DocBlockr",
@@ -19,9 +29,11 @@
 		"Grunt",
 		"Gutter Color",
 		"HTML5",
+		"JavaScript Completions",
 		"JavaScriptNext - ES6 Syntax",
 		"MarkdownEditing",
 		"nginx",
+		"Node Completions",
 		"Origami",
 		"Package Control",
 		"SCSS",
@@ -30,7 +42,6 @@
 		"SideBarGit",
 		"SublimeLinter",
 		"SublimeREPL",
-		"TernJS",
 		"Theme - Spacegray",
 		"Tomorrow Color Schemes",
 		"WordPress"
