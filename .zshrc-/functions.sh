@@ -1,5 +1,5 @@
 function webserver() {
-  local port="${1:-8000}"
+  local port="${1:-8888}"
   open "http://localhost:${port}/"
   python -c $'import SimpleHTTPServer;\nstream = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nstream[""] = "text/plain";\nfor key, value in stream.items():\n\tstream[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }
@@ -34,4 +34,18 @@ function update() {
     echo .
     echo .
     echo — Done
+}
+
+function nodeme() {
+    npm -g install david
+    npm -g install grunt-cli
+    npm -g install bower
+    npm -g install yo
+    npm -g install jspm
+    npm -g install webpack
+    npm -g install vtop
+    npm -g install licensr
+    npm -g install coffee
+    npm -g install mocha
+    npm -g install browserify
 }

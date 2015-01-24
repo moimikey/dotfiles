@@ -4,5 +4,13 @@
   { "keys": ["super+s"], "command": "save_all" },
   { "keys": ["super+shift+s"], "command": "prompt_save_as" },
   { "keys": ["super+alt+s"], "command": "save" },
-  { "keys": ["super+ctrl+`"], "command": "alignment" }
+  { "keys": ["super+ctrl+`"], "command": "alignment" },
+  { "keys": ["super+alt+p"],
+    "command": "jsbeautify",
+    "context": [{
+      "key": "selector",
+      "operator": "equal",
+      "operand": "source.js,source.json,source.jade"
+    }]
+  }
 ]

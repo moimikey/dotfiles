@@ -1,8 +1,7 @@
 # Override
 alias ack='ag -u --stats'
-alias bower='noglob bower'
-alias grunt="noglob grunt"
-alias node='node --harmony'
+# alias bower='noglob bower'
+# alias grunt="noglob grunt"
 alias php='/usr/bin/php'
 alias port="port -d"
 alias vi="vim"
@@ -41,6 +40,9 @@ alias show="defaults write com.apple.Finder AppleShowAllFiles -bool true && kill
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+# Node
+alias nodepackages="npm list -g --depth=0"
 
 # Fixes
 alias fixaudio="sudo killall coreaudiod"

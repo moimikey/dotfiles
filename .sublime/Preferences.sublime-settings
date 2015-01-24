@@ -33,9 +33,9 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Vintage",
+		"CSS3",
 		"Markdown",
-		"CSS3"
+		"Vintage"
 	],
 	"indent_to_bracket": true,
 	"index_exclude_patterns":

@@ -11,6 +11,7 @@
 	[
 		"Alignment",
 		"ApplySyntax",
+		"Arduino-like IDE",
 		"Autoprefixer",
 		"Backbone.Marionette",
 		"Badges",
@@ -29,6 +30,7 @@
 		"Grunt",
 		"Gutter Color",
 		"HTML5",
+		"Javascript Beautify",
 		"JavaScript Completions",
 		"JavaScriptNext - ES6 Syntax",
 		"MarkdownEditing",
