@@ -2,8 +2,9 @@
 plugins=''
 
 ZSH=$HOME/.oh-my-zsh
-#ZSH_THEME='nanotech'
-ZSH_THEME='nicoulaj'
+ZSH_THEME='dieter'
+# ZSH_THEME='nicoulaj'
+# ZSH_THEME='agnoster'
 COMPLETION_WAITING_DOTS=true
 DISABLE_UPDATE_PROMPT=true
 HISTSIZE=99999999

@@ -22,14 +22,14 @@ function update() {
     brew prune
     echo - Updating Oh My ZSH...
     upgrade_oh_my_zsh
-    echo — Updating NPM packages...
-    david update --global
     echo - Updating RVM...
     rvm get stable
     echo - Updating Ruby Gems...
     rvm rubygems latest
     echo - Cleanup up RVM...
     rvm cleanup all
+    echo - Running David...
+    david --global
     echo .
     echo .
     echo .
@@ -41,11 +41,30 @@ function nodeme() {
     npm -g install grunt-cli
     npm -g install bower
     npm -g install yo
-    npm -g install jspm
     npm -g install webpack
     npm -g install vtop
     npm -g install licensr
-    npm -g install coffee
+    npm -g install coffee-script
     npm -g install mocha
-    npm -g install browserify
+    npm -g install redis-commander
+    npm -g install gulp
+}
+
+function vagrantpress() {
+    git clone git@github.com:chad-thompson/vagrantpress.git
+    open https://github.com/chad-thompson/vagrantpress
+}
+
+function herokuwp() {
+    git clone git@github.com:xyu/heroku-wp.git
+    open https://github.com/xyu/heroku-wp#installation
+}
+
+function roots() {
+    git clone https://github.com/roots/sage.git
+    open https://github.com/roots/sage#installation
+}
+
+function sage() {
+    roots
 }

@@ -2,25 +2,25 @@
 	"in_process_packages":
 	[
 	],
-	"installed_dependencies":
-	[
-		"0_package_control_loader",
-		"bz2"
-	],
 	"installed_packages":
 	[
 		"Alignment",
 		"ApplySyntax",
 		"Arduino-like IDE",
 		"Autoprefixer",
+		"Babel",
+		"Backbone.js",
 		"Backbone.Marionette",
 		"Badges",
 		"Better CoffeeScript",
+		"Better JavaScript",
+		"Bootstrap 3 Snippets",
 		"Chai Completions",
 		"CSS3",
 		"Cucumber",
 		"DocBlockr",
 		"Evernote",
+		"FileSystem Autocompletion",
 		"Fix Mac Path",
 		"Gist",
 		"Git",
@@ -28,6 +28,7 @@
 		"GitGutter",
 		"Glue",
 		"Grunt",
+		"Gulp",
 		"Gutter Color",
 		"HTML5",
 		"Javascript Beautify",
@@ -42,10 +43,10 @@
 		"Shell Turtlestein",
 		"SideBarEnhancements",
 		"SideBarGit",
-		"SublimeLinter",
 		"SublimeREPL",
 		"Theme - Spacegray",
 		"Tomorrow Color Schemes",
+		"UnicodeMath",
 		"WordPress"
 	]
 }
