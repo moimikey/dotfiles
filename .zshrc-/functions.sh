@@ -15,7 +15,7 @@ function update() {
     echo - Updating Casks...
     brew outdated | while read cask; do brew upgrade $cask; done
     echo — Updating Homebrew packages...
-    brew upgrade
+    brew upgrade --all
     echo — Cleaning up...
     brew cleanup
     echo - Pruning...
@@ -30,10 +30,6 @@ function update() {
     rvm cleanup all
     echo - Running David...
     david --global
-    echo .
-    echo .
-    echo .
-    echo — Done
 }
 
 function nodeme() {
@@ -48,11 +44,16 @@ function nodeme() {
     npm -g install mocha
     npm -g install redis-commander
     npm -g install gulp
+    npm -g install browserify
+    npm -g install boot2docker
+    npm -g install heroku
+    npm -g install uglifyjs
+    npm -g install yuicompressor
 }
 
 function vagrantpress() {
-    git clone git@github.com:chad-thompson/vagrantpress.git
-    open https://github.com/chad-thompson/vagrantpress
+    git clone git@github.com:chad-thompson/vagrantpress.git $1
+    cd $1 || cd vagrantpress
 }
 
 function herokuwp() {
@@ -61,10 +62,17 @@ function herokuwp() {
 }
 
 function roots() {
-    git clone https://github.com/roots/sage.git
-    open https://github.com/roots/sage#installation
+    git clone https://github.com/roots/sage.git $1
 }
 
 function sage() {
-    roots
+    roots $1
+}
+
+function newmodule() {
+    git clone git@github.com:sindresorhus/node-module-boilerplate.git $1
+    cd $1
+    git filter-branch --subdirectory-filter boilerplate
+    rm -rf .git
+    git init
 }

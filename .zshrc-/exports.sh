@@ -2,7 +2,8 @@
 plugins=''
 
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME='dieter'
+# ZSH_THEME='dieter'
+ZSH_THEME='nigga'
 # ZSH_THEME='nicoulaj'
 # ZSH_THEME='agnoster'
 COMPLETION_WAITING_DOTS=true
@@ -37,8 +38,9 @@ plugins+=(git-extra-commands)
 plugins+=(git-extras)
 plugins+=(gitfast)
 plugins+=(grunt)
-plugins+=(hipchat)
-plugins+=(npm)
+# plugins+=(hipchat)
+# plugins+=(npm)
+plugins+=(nvm)
 
 EDITOR='subl -w'
 ARCHFLAGS='-arch x86_64'

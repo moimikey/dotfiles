@@ -1,5 +1,6 @@
 DOTFILESPATH=$HOME/git/dotfiles
 . $DOTFILESPATH/.zshrc.private
+. $DOTFILESPATH/.zshrc-/env.sh
 . $DOTFILESPATH/.zshrc-/colors.sh
 . $DOTFILESPATH/.zshrc-/exports.sh
 . $DOTFILESPATH/.zshrc-/settings.sh
