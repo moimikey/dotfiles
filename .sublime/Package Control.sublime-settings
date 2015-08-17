@@ -11,7 +11,6 @@
 		"Babel",
 		"Babel Snippets",
 		"Backbone.js",
-		"Backbone.Marionette",
 		"Badges",
 		"Better CoffeeScript",
 		"Better JavaScript",
@@ -40,7 +39,6 @@
 		"HTMLAttributes",
 		"HTMLBeautify",
 		"Javascript Beautify",
-		"JavaScript Completions",
 		"Jest",
 		"JSONLint",
 		"Markdown Extended",
@@ -57,6 +55,7 @@
 		"SublimeREPL",
 		"Theme - Spacegray",
 		"Tomorrow Color Schemes",
+		"Unicode Character Highlighter",
 		"UnicodeMath",
 		"WordPress"
 	]
