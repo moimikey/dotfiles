@@ -1,0 +1,76 @@
+#!/usr/bin/env node --harmony
+/**
+ * A selection tool for installing node packages
+ *
+ * Michael Scott Hertzberg / moimikey
+ *
+ */
+require("shelljs/global");
+var inquirer = require("inquirer");
+var checkboxes = [].concat({
+  type: "checkbox",
+  message: "Pick your poisons...",
+  name: "packages",
+  choices: []
+});
+[ 'babel',
+  'async-await',
+  'browserify',
+  'webpack',
+  'react',
+  'eslint'
+].map(function(package) {
+  checkboxes[0].choices.push(package);
+});
+inquirer.prompt(checkboxes,
+function(answers) {
+  answers.packages.map(function(package) {
+    switch(package) {
+    case 'babel':
+      exec('npm install --save-dev babel \
+      babel-core \
+      babel-loader \
+      babel-runtime \
+      babel-eslint \
+      babel-plugin-runtime \
+      babel-plugin-object-assign \
+      babel-plugin-undefined-to-void \
+      babel-plugin-typecheck');
+    case 'async-await':
+      exec('npm install --save-dev meteor-async-await');
+    case 'browserify':
+      exec('npm install --save-dev browserify \
+      brfs \
+      uglifyjs \
+      zlib-browserify');
+    case 'webpack':
+      exec('npm install --save-dev webpack \
+      webpack-dev-server \
+      sass-loader \
+      strip-loader \
+      style-loader \
+      json-loader \
+      css-loader \
+      react-hot-loader \
+      babel-loader \
+      autoprefixer-loader \
+      extract-text-webpack-plugin \
+      clean-webpack-plugin');
+      exec('npm install --save file-loader \
+      url-loader');
+    case 'react':
+      exec('npm install --save-dev react-a11y \
+      react-hot-loader');
+      exec('npm install --save react \
+      react-inline-css \
+      react-redux \
+      react-router \
+      redux \
+      redux-form');
+    case 'eslint':
+      exec('npm install --save-dev eslint \
+      eslint \
+      eslint-plugin-react');
+    }
+  })
+});
