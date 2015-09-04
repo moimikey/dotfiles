@@ -1,11 +1,7 @@
 {
 	"additional_path_items":
 	[
-		"/Users/mshertzberg/.rvm/gems/ruby-1.9.3-p429/bin",
-		"/Users/mshertzberg/.rvm/gems/ruby-1.9.3-p429@global/bin",
-		"/Users/mshertzberg/.rvm/rubies/ruby-1.9.3-p429/bin",
 		"/Users/mshertzberg/.rvm/bin",
-		"/Users/mshertzberg/.nvm/v0.11.13/bin",
 		"/opt/local/bin",
 		"/opt/local/sbin",
 		"/usr/local/bin",
@@ -16,45 +12,34 @@
 		"/usr/sbin",
 		"/sbin",
 		"/usr/X11/bin",
-		"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin",
 		"/opt/local/libexec/gnubin",
 		"/Users/mshertzberg/depot_tools",
 		"/Users/mshertzberg/.rvm/bin"
 	],
 	"bold_folder_labels": true,
 	"caret_style": "phase",
-	"color_scheme": "Packages/Gutter Color/base16-ocean.gcfix.tmTheme",
+	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.light.tmTheme",
 	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
 	"fallback_encoding": "UTF-8",
 	"font_face": "menlo",
-	"font_size": 15.5,
+	"font_size": 16,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"DocBlockr",
-		"Markdown",
-		"JavaScript",
-		"Vintage",
-		"CSS3",
-		"FileSystem Autocompletion"
+		"JavaScript"
 	],
 	"indent_to_bracket": true,
 	"index_exclude_patterns":
 	[
-		"/Users/mshertzberg/Git/shitty-uber*",
-		"/Users/mshertzberg/SUMI/.tmp*",
-		"/Users/mshertzberg/Git/shitty-uber/node_modules*",
-		"/Users/mshertzberg/SUMI/node_modules*",
-		"/Users/mshertzberg/SUMI/.sass-cache*",
-		"/Users/mshertzberg/SUMI/dist*",
-		"/Users/mshertzberg/SUMI/app/components*",
-		"/Users/mshertzberg/SUMI/blog*",
-		"/Users/mshertzberg/Projects/stylelikeu/wordpress/wp-content/themes/stylelikeu*",
+		".tmp*",
+		".sass-cache*",
 		"*.log",
-		"/Users/mshertzberg/SUMI/.idea*",
-		"/Users/mshertzberg/Git/iso-auth-boilerplate/node_modules*"
+		".idea*",
+		"node_modules",
+		"bower_components",
+		".git"
 	],
 	"margin": 0,
 	"match_brackets_angle": true,

@@ -4,6 +4,10 @@ alias php='/usr/bin/php'
 alias port="port -d"
 alias vi="vim"
 alias wget="wget -c"
+alias gcc="gcc-4.8"
+alias cc="gcc-4.8"
+alias g++="g++-4.8"
+alias c++="c++-4.8"
 
 # ImageMagick
 alias blackandwhite='mogrify -colorspace gray'
