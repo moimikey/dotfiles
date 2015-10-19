@@ -18,7 +18,8 @@ var checkboxes = [].concat({
   'browserify',
   'webpack',
   'react',
-  'eslint'
+  'eslint',
+  'gulp'
 ].map(function(package) {
   checkboxes[0].choices.push(package);
 });
@@ -36,13 +37,16 @@ function(answers) {
       babel-plugin-object-assign \
       babel-plugin-undefined-to-void \
       babel-plugin-typecheck');
+      break;
     case 'async-await':
       exec('npm install --save-dev meteor-async-await');
+      break;
     case 'browserify':
       exec('npm install --save-dev browserify \
       brfs \
       uglifyjs \
       zlib-browserify');
+      break;
     case 'webpack':
       exec('npm install --save-dev webpack \
       webpack-dev-server \
@@ -58,6 +62,7 @@ function(answers) {
       clean-webpack-plugin');
       exec('npm install --save file-loader \
       url-loader');
+      break;
     case 'react':
       exec('npm install --save-dev react-a11y \
       react-hot-loader');
@@ -67,10 +72,21 @@ function(answers) {
       react-router \
       redux \
       redux-form');
+      break;
     case 'eslint':
       exec('npm install --save-dev eslint \
       eslint \
       eslint-plugin-react');
+      break;
+    case 'gulp':
+      exec('npm install --save-dev gulp \
+      gulp-plumber \
+      gulp-eslint \
+      gulp-help \
+      gulp-filter \
+      gulp-load-plugins \
+      gulp-util');
+      break;
     }
   })
 });

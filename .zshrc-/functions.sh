@@ -36,19 +36,17 @@ function nodeme() {
     npm -g install david
     npm -g install grunt-cli
     npm -g install bower
-    npm -g install yo
     npm -g install webpack
     npm -g install vtop
     npm -g install licensr
     npm -g install coffee-script
-    npm -g install mocha
-    npm -g install redis-commander
     npm -g install gulp
     npm -g install browserify
-    npm -g install boot2docker
     npm -g install heroku
-    npm -g install uglifyjs
-    npm -g install yuicompressor
+    npm -g install surger
+    npm -g install pianobar
+    npm -g install speed-test
+    npm -g install fkill-cli
 }
 
 function vagrantpress() {
