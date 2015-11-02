@@ -3,9 +3,9 @@ plugins=''
 
 ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME='dieter'
-ZSH_THEME='nigga'
-# ZSH_THEME='nicoulaj'
-# ZSH_THEME='agnoster'
+ZSH_THEME='maran'
+# ZSH_THEME='mh'
+# ZSH_THEME='ys'
 COMPLETION_WAITING_DOTS=true
 DISABLE_UPDATE_PROMPT=true
 HISTSIZE=99999999
