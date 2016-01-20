@@ -38,15 +38,15 @@
 	"ensure_newline_at_eof_on_save": true,
 	"fallback_encoding": "UTF-8",
 	"font_face": "menlo",
-	"font_size": 16,
+	"font_size": 19,
 	"hide_minimap": true,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Gulp",
+		"Git",
 		"JavaScript",
-		"Node Completions",
+		"Javascript Beautify",
 		"SCSS",
 		"Shell Turtlestein",
 		"Vintage"
@@ -54,8 +54,9 @@
 	"indent_to_bracket": true,
 	"index_exclude_patterns":
 	[
-		"node_modules*",
-		"bower_components*"
+		"*bower_components*",
+		"/Users/mshertzberg/SUMI/app/components*",
+		"*node_modules*"
 	],
 	"margin": 0,
 	"match_brackets_angle": true,

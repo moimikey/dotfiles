@@ -14,12 +14,9 @@ var checkboxes = [].concat({
   choices: []
 });
 [ 'babel',
-  'async-await',
-  'browserify',
   'webpack',
-  'react',
-  'eslint',
-  'gulp'
+  'gulp',
+  'tape'
 ].map(function(package) {
   checkboxes[0].choices.push(package);
 });
@@ -32,12 +29,6 @@ function(answers) {
       babel-preset-es2015 \
       babel-preset-stage-0 \
       babel-eslint');
-      break;
-    case 'browserify':
-      exec('npm install --save-dev browserify \
-      brfs \
-      uglifyjs \
-      zlib-browserify');
       break;
     case 'webpack':
       exec('npm install --save-dev webpack \
@@ -55,20 +46,6 @@ function(answers) {
       exec('npm install --save file-loader \
       url-loader');
       break;
-    case 'react':
-      exec('npm install --save-dev react-a11y \
-      react-hot-loader');
-      exec('npm install --save react \
-      react-inline-css \
-      react-redux \
-      react-router \
-      redux \
-      redux-form');
-      break;
-    case 'eslint':
-      exec('npm install --save-dev eslint \
-      eslint-plugin-react');
-      break;
     case 'gulp':
       exec('npm install --save-dev gulp \
       gulp-plumber \
@@ -77,6 +54,12 @@ function(answers) {
       gulp-filter \
       gulp-load-plugins \
       gulp-util');
+      break;
+    case 'tape':
+      exec('npm install --save-dev tape \
+      faucet \
+      rewire \
+      tape-catch');
       break;
     }
   })

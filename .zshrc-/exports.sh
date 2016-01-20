@@ -40,7 +40,7 @@ plugins+=(gitfast)
 plugins+=(grunt)
 # plugins+=(hipchat)
 # plugins+=(npm)
-plugins+=(nvm)
+# plugins+=(nvm)
 
 EDITOR='subl -w'
 ARCHFLAGS='-arch x86_64'
