@@ -33,28 +33,25 @@ function update() {
 }
 
 function nodeme() {
-  (($+commands[babel-node])) || npm -g install babel-cli
-  (($+commands[bower])) || npm -g install bower
-  (($+commands[browserify])) || npm -g install browserify
-  (($+commands[changelog])) || npm -g install changelog
-  (($+commands[coffee])) || npm -g install coffee-script
-  (($+commands[dploy])) || npm -g install dploy
-  (($+commands[fkill])) || npm -g install fkill-cli
-  (($+commands[greenkeeper])) || npm -g install greenkeeper
-  (($+commands[grunt])) || npm -g install grunt-cli
-  (($+commands[gulp])) || npm -g install gulp
-  (($+commands[heroku])) || npm -g install heroku
-  (($+commands[licensr])) || npm -g install licensr
-  (($+commands[ncu])) || npm -g install npm-check-updates
-  (($+commands[nodemon])) || npm -g install nodemon
-  (($+commands[np])) || npm -g install np
-  (($+commands[pianobar])) || npm -g install pianobar
-  (($+commands[release])) || npm -g install release
-  (($+commands[speed-test])) || npm -g install speed-test
-  (($+commands[surger])) || npm -g install surger
-  (($+commands[vtop])) || npm -g install vtop
-  (($+commands[webpack])) || npm -g install webpack
-  (($+commands[yo])) || npm -g install yo
+  type -P babel-node &>/dev/null && continue || npm -g install babel-cli
+  type -P bower &>/dev/null && continue || npm -g install bower
+  type -P browserify &>/dev/null && continue || npm -g install browserify
+  type -P dploy &>/dev/null && continue || npm -g install dploy
+  type -P fkill &>/dev/null && continue || npm -g install fkill-cli
+  type -P greenkeeper &>/dev/null && continue || npm -g install greenkeeper
+  type -P gulp &>/dev/null && continue || npm -g install gulp
+  type -P heroku &>/dev/null && continue || npm -g install heroku
+  type -P licensr &>/dev/null && continue || npm -g install licensr
+  type -P ncu &>/dev/null && continue || npm -g install npm-check-updates
+  type -P np &>/dev/null && continue || npm -g install np
+  type -P speed-test &>/dev/null && continue || npm -g install speed-test
+  type -P surger &>/dev/null && continue || npm -g install surger
+  type -P vtop &>/dev/null && continue || npm -g install vtop
+  type -P webpack &>/dev/null && continue || npm -g install webpack
+  type -P is-satire &>/dev/null && continue || npm -g install is-satire
+  type -P castnow &>/dev/null && continue || npm -g install castnow
+  type -P kill-tabs &>/dev/null && continue || npm -g install kill-tabs
+  type -P npmlv &>/dev/null && continue || npm -g install npmlv
 }
 
 function vagrantpress() {
@@ -84,7 +81,7 @@ function newmodule() {
 }
 
 # function np() {
-#   export GITHUB_ACCESS_TOKEN=054ef5f61afa0a7882f043df24a01725d86e72a8
+#   export GITHUB_ACCESS_TOKEN=05x4ef5f61afa0a7882f043df24a01725d86e72a8
 
 #   if test -n "$(git status --porcelain)"; then
 #     echo 'Unclean working tree. Commit or stash changes first.' >&2;

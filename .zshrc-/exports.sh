@@ -32,12 +32,12 @@ if [ ! -d ~/.oh-my-zsh/custom/plugins/alias-tips ]; then
 fi
 
 plugins+=(alias-tips)
-plugins+=(bundler)
-plugins+=(caniuse)
+# plugins+=(bundler)
+# plugins+=(caniuse)
 plugins+=(git-extra-commands)
 plugins+=(git-extras)
 plugins+=(gitfast)
-plugins+=(grunt)
+# plugins+=(grunt)
 # plugins+=(hipchat)
 # plugins+=(npm)
 # plugins+=(nvm)

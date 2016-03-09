@@ -1,4 +1,4 @@
-#!/usr/bin/env node --harmony
+#!/usr/bin/env node
 /**
  * A selection tool for installing node packages
  *
@@ -13,10 +13,15 @@ var checkboxes = [].concat({
   name: "packages",
   choices: []
 });
-[ 'babel',
+[ 'web-base',
+  'npm-base',
+  'babel',
   'webpack',
   'gulp',
-  'tape'
+  'tape',
+  'eslint',
+  'react',
+  'cycle'
 ].map(function(package) {
   checkboxes[0].choices.push(package);
 });
@@ -24,48 +29,101 @@ inquirer.prompt(checkboxes,
 function(answers) {
   answers.packages.map(function(package) {
     switch(package) {
+    case 'web-base':
+      exec('npm install --save-dev \
+      cross-env \
+      express \
+      ignore-styles \
+      mkdirp \
+      node-sass \
+      lodash \
+      url
+      ');
+      break;
+    case 'npm-base':
+      exec('npm install --save-dev \
+      lodash
+      ');
+      break;
     case 'babel':
-      exec('npm install --save-dev babel-core \
+      exec('npm install --save-dev \
+      babel-core \
+      babel-cli \
       babel-preset-es2015 \
       babel-preset-stage-0 \
-      babel-eslint');
+      babel-eslint \
+      babel-plugin-transform-runtime \
+      babel-runtime
+      ');
       break;
     case 'webpack':
-      exec('npm install --save-dev webpack \
-      webpack-dev-server \
-      sass-loader \
-      strip-loader \
-      style-loader \
+      exec('npm install --save-dev \
+      webpack \
+      webpack-dev-middleware \
+      webpack-hot-middleware \
       json-loader \
-      css-loader \
-      react-hot-loader \
       babel-loader \
+      file-loader \
+      css-loader \
+      sass-loader \
+      style-loader \
+      url-loader \
       autoprefixer-loader \
       extract-text-webpack-plugin \
-      clean-webpack-plugin');
-      exec('npm install --save file-loader \
-      url-loader');
+      clean-webpack-plugin
+      ');
       break;
     case 'gulp':
-      exec('npm install --save-dev gulp \
+      exec('npm install --save-dev \
+      gulp \
       gulp-plumber \
       gulp-eslint \
       gulp-help \
       gulp-filter \
       gulp-load-plugins \
-      gulp-util');
+      gulp-util
+      ');
       break;
     case 'tape':
-      exec('npm install --save-dev tape \
-      faucet \
-      rewire \
-      tape-catch');
+      exec('npm install --save-dev \
+      tape \
+      tap-notify \
+      tap-spec \
+      extend-tape \
+      faucet
+      ');
+      break;
+    case 'eslint':
+      exec('npm install --save-dev \
+      eslint \
+      eslint-plugin-babel \
+      babel-eslint
+      ');
+      break;
+    case 'react':
+      exec('npm install --save-dev \
+      babel-plugin-react-transform \
+      babel-preset-react \
+      babel-preset-react-hmre \
+      eslint-plugin-react \
+      react-addons-test-utils \
+      tape-jsx-equals
+      ');
+      exec('npm install --save \
+      react \
+      react-dom \
+      react-addons-pure-render-mixin
+      ');
+      break;
+    case 'cycle':
+      exec('npm install --save \
+      @cycle/core \
+      @cycle/dom \
+      @cycle/isolate \
+      @cycle/storage \
+      rx
+      ');
       break;
     }
   })
 });
-
-/*
-
-an http client? reqisition
- */
