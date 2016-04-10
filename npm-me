@@ -1,4 +1,4 @@
-npm config set save-prefix '~'
+npm config set save-prefix ''
 npm config set init.author.url 'http://hertzber.gs/'
 npm config set init.version '0.1.0'
 npm config set init.license 'MIT'

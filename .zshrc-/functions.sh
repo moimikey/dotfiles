@@ -20,16 +20,6 @@ function update() {
   brew cleanup
   echo brew prune
   brew prune
-  echo upgrade_oh_my_zsh
-  upgrade_oh_my_zsh
-  echo rvm get stable
-  rvm get stable
-  echo rvm rubygems latest
-  rvm rubygems latest
-  echo rvm cleanup all
-  rvm cleanup all
-  echo ncu
-  ncu -g
 }
 
 function nodeme() {
@@ -70,14 +60,6 @@ function roots() {
 
 function sage() {
   roots $1
-}
-
-function newmodule() {
-  git clone git@github.com:sindresorhus/node-module-boilerplate.git $1
-  cd $1
-  git filter-branch --subdirectory-filter boilerplate
-  rm -rf .git
-  git init
 }
 
 # function np() {
