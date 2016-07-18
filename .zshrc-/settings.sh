@@ -9,10 +9,11 @@ setopt extended_history
 setopt always_to_end
 setopt auto_menu
 setopt complete_in_word
+
 unsetopt menu_complete
 
-setopt correct
-setopt correctall
+# setopt correct
+# setopt correctall
 
 setopt prompt_subst
 
