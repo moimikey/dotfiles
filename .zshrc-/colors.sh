@@ -1,7 +1,0 @@
-BLU="\x1b[36m"
-CYA="\x1b[34m"
-GRN="\x1b[32m"
-PUR="\x1b[35m"
-RED="\x1b[31m"
-RST="\x1b[0m"
-YEL="\x1b[33m"
