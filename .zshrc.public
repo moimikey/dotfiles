@@ -1,0 +1,2 @@
+export DOTFILES=$HOME/git/dotfiles
+. $DOTFILES/.zshrc-/.zshrc

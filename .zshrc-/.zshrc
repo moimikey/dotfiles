@@ -1,27 +1,32 @@
-export ZSH=/Users/mshertzberg/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
+# http://geoff.greer.fm/lscolors/
+export LS_COLORS="di=1;31:ln=35:so=0;41:pi=0;47:ex=32:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 
-ZSH_THEME="agnoster"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
 HYPHEN_INSENSITIVE="true"
-COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 DISABLE_CORRECTION="true"
-COMPLETION_WAITING_DOTS=true
+COMPLETION_WAITING_DOTS="true"
 HISTSIZE=99999999
 
 plugins=''
+plugins+=(docker)
+plugins+=(dotenv)
 plugins+=(git)
-plugins+=(ssh-agent)
 plugins+=(git-extras)
 plugins+=(npm)
 plugins+=(nvm)
-plugins+=(go)
+plugins+=(ssh-agent)
 
 export GOPATH="$HOME/.go"
 export PATH="/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:~/.cargo/bin"
 
-source $ZSH/oh-my-zsh.sh
+. $ZSH/oh-my-zsh.sh
 
-alias ack='pt -S -f --hidden'
+alias pt='pt -S -f --hidden'
+alias ack='pt'
+alias ag='pt'
 alias composer="php composer.phar"
 alias fixaudio="_ killall coreaudiod"
 alias fixcamera="_ killall VDCAssistant"
@@ -35,7 +40,7 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias json="python -mjson.tool"
 alias klear="find . -maxdepth 8 -delete"
 alias latest="npm dist-tag ls"
-alias ls="ls --color=auto"
+alias ls="ls --color=auto -G"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias root="_ -i"
 alias vi="vim"
@@ -77,4 +82,5 @@ unsetopt menu_complete
 setopt prompt_subst
 setopt multios
 
+echo
 cat ~/.motd

@@ -15,6 +15,13 @@ git config --global user.email "mshertzberg@gmail.com"
 git config --global --add remote.origin.fetch "+refs/pull/*/head:refs/remotes/origin/pr/*"
 git config --global pager.diff "diff-so-fancy | less --tabs=1,5 -RFX"
 git config --global pager.show "diff-so-fancy | less --tabs=1,5 -RFX"
+git config --global commit.gpgsign true
+```
+
+# Autocompletion
+```
+git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+plugins+=(zsh-autosuggestions)
 ```
 
 # Optional
