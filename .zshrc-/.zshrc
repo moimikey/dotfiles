@@ -14,34 +14,28 @@ plugins=''
 plugins+=(docker)
 plugins+=(dotenv)
 plugins+=(git)
-plugins+=(git-extras)
 plugins+=(npm)
 plugins+=(nvm)
 plugins+=(ssh-agent)
 
-export GOPATH="$HOME/.go"
-export PATH="/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:~/.cargo/bin"
+# export GOPATH="$HOME/.go"
+# export PATH="/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:~/.cargo/bin"
 
 . $ZSH/oh-my-zsh.sh
 
-alias pt='pt -S -f --hidden'
-alias ack='pt'
-alias ag='pt'
-alias composer="php composer.phar"
+alias _="sudo"
 alias fixaudio="_ killall coreaudiod"
 alias fixcamera="_ killall VDCAssistant"
 alias fixdupes="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -all s,l,u; killall Finder"
 alias fixnpm="npm -g cache clean"
-alias flush="_ dscacheutil -flushcache; echo `ps aux | grep mDNSResponder | grep -v grep | awk '{print $2}'` | xargs _ kill -HUP"
-alias flushall="echo 'flush_all' | nc localhost 11211 -i1 <<< 'quit'"
+alias flushdns="_ dscacheutil -flushcache; echo `ps aux | grep mDNSResponder | grep -v grep | awk '{print $2}'` | xargs _ kill -HUP"
+alias flushredis="echo 'flush_all' | nc localhost 11211 -i1 <<< 'quit'"
 alias getcomposer="curl -s https://getcomposer.org/installer | php"
 alias hosts="_ vim /etc/hosts"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias json="python -mjson.tool"
 alias klear="find . -maxdepth 8 -delete"
 alias latest="npm dist-tag ls"
-alias ls="ls --color=auto -G"
-alias ohmyzsh="code ~/.oh-my-zsh"
 alias root="_ -i"
 alias vi="vim"
 alias wget="wget -c"
@@ -58,8 +52,8 @@ function update() {
   brew cleanup
   echo brew prune
   brew prune
-  echo david -g
-  david -g
+  #echo david -g
+  #david -g
 }
 
 function webserver() {
@@ -81,6 +75,3 @@ unsetopt menu_complete
 # setopt correctall
 setopt prompt_subst
 setopt multios
-
-echo
-cat ~/.motd
