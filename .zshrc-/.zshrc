@@ -1,8 +1,7 @@
 export ZSH=~/.oh-my-zsh
-# http://geoff.greer.fm/lscolors/
-export LS_COLORS="di=1;31:ln=35:so=0;41:pi=0;47:ex=32:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+. $ZSH/oh-my-zsh.sh
 
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+export LS_COLORS='no=00:fi=00:di=01;31:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 
 HYPHEN_INSENSITIVE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
@@ -11,35 +10,25 @@ COMPLETION_WAITING_DOTS="true"
 HISTSIZE=99999999
 
 plugins=''
-plugins+=(docker)
-plugins+=(dotenv)
-plugins+=(git)
-plugins+=(npm)
+#plugins+=(dotenv)
 plugins+=(nvm)
 plugins+=(ssh-agent)
 
-# export GOPATH="$HOME/.go"
-# export PATH="/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:~/.cargo/bin"
-
-. $ZSH/oh-my-zsh.sh
-
 alias _="sudo"
+alias root="_ -i"
 alias fixaudio="_ killall coreaudiod"
 alias fixcamera="_ killall VDCAssistant"
 alias fixdupes="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -all s,l,u; killall Finder"
 alias fixnpm="npm -g cache clean"
 alias flushdns="_ dscacheutil -flushcache; echo `ps aux | grep mDNSResponder | grep -v grep | awk '{print $2}'` | xargs _ kill -HUP"
-alias flushredis="echo 'flush_all' | nc localhost 11211 -i1 <<< 'quit'"
 alias getcomposer="curl -s https://getcomposer.org/installer | php"
 alias hosts="_ vim /etc/hosts"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias json="python -mjson.tool"
 alias klear="find . -maxdepth 8 -delete"
 alias latest="npm dist-tag ls"
-alias root="_ -i"
-alias vi="vim"
 alias wget="wget -c"
-alias zshconfig="code ~/.zshrc"
+alias zshconfig="$EDITOR ~/.zshrc"
 
 function update() {
   echo brew update
@@ -47,13 +36,11 @@ function update() {
   echo brew outdated
   brew outdated | while read cask; do brew upgrade $cask; done
   echo brew upgrade
-  brew upgrade --all
+  brew upgrade
   echo brew cleanup
   brew cleanup
   echo brew prune
   brew prune
-  #echo david -g
-  #david -g
 }
 
 function webserver() {
@@ -63,6 +50,8 @@ function webserver() {
 }
 
 defaults write com.apple.screencapture disable-shadow -bool true
+
+tabs -2
 setopt no_beep
 setopt pushd_ignore_dups
 setopt extended_glob
